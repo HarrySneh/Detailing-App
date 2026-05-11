@@ -71,7 +71,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
         const data = await response.json();
         throw new Error(data.error || "Submission failed");
       }
-    } catch (err: any) {
+    } catch (err: any ) {
       setSubmitError(err.message || "Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
