@@ -42,17 +42,20 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
     setSubmitError("");
 
     try {
-      const response = await fetch("https://formspree.io/f/xkoykyva", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          service: selectedService,
-          name,
-          email,
-          phone,
-          agreed,
-        }),
-      });
+      const response = await fetch(
+        import.meta.env.VITE_FORMSPREE_URL || "https://formspree.io/f/xkoykyva",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            service: selectedService,
+            name,
+            email,
+            phone,
+            agreed,
+          }),
+        },
+      );
 
       if (response.ok) {
         // Reset form

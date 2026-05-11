@@ -1,5 +1,5 @@
-import { useState, FormEvent } from "react";
-
+import { useState } from "react";
+import type { FormEvent } from "react";
 export default function ZipCodeChecker() {
   const [zip, setZip] = useState("");
   const [status, setStatus] = useState<
