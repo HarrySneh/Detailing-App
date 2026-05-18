@@ -10,20 +10,9 @@ import FooterSection from "../components/FooterSection";
 import BookingModal from "../components/BookingModal";
 import TextToBookFAB from "../components/TextToBookFAB";
 
-// Local asset imports
+// Local assets (still needed for Hero & Gallery)
 import heroImg from "../assets/hero.jpg";
 import galleryImg from "../assets/gallery.jpg";
-import ceramicImg from "../assets/ceramic.jpg";
-import correctionImg from "../assets/correction.jpg";
-import interiorImg from "../assets/interior.jpg";
-
-const HERO_IMAGE = heroImg;
-const GALLERY_IMAGE = galleryImg;
-const SERVICE_IMAGES = {
-  ceramic: ceramicImg,
-  correction: correctionImg,
-  interior: interiorImg,
-};
 
 export default function Home() {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -32,14 +21,11 @@ export default function Home() {
     <div className="min-h-screen bg-obsidian">
       <Navbar onBookClick={() => setBookingOpen(true)} />
       <HeroSection
-        heroImage={HERO_IMAGE}
+        heroImage={heroImg}
         onBookClick={() => setBookingOpen(true)}
       />
-      <ServicesSection
-        images={SERVICE_IMAGES}
-        onBookClick={() => setBookingOpen(true)}
-      />
-      <GallerySection galleryImage={GALLERY_IMAGE} />
+      <ServicesSection />
+      <GallerySection galleryImage={galleryImg} />
       <ProcessSection />
       <PostalCodeChecker />
       <GuaranteeBadge />
